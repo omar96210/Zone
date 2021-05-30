@@ -1,0 +1,173 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header row">
+        <div class="col-md-6">
+          <h4 class="card-title text-right ">{{'ChoicesTablehead' | translate }}</h4>
+
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-round"  data-toggle="modal"
+          data-target="#AddChoices">{{'AddChoiceshead' | translate }}</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead class=" text-primary">
+              <th style="width:5%">
+                #
+              </th >
+              <th>
+                {{'Name' | translate }}
+              </th>
+              <th>
+                {{'food_id' | translate }}
+              </th>
+              <th style="width:10%">
+                {{'Edit' | translate }}
+              </th>
+              <th style="width:10%">
+                {{'Delete' | translate }}
+              </th >
+            </thead>
+            <tbody>
+              <tr *ngFor="let options of optionsSectiondata">
+                <td style="width:5%">
+                  {{options.id}}
+                </td>
+                <td>
+                  {{options.name}}
+                </td>
+                <td>
+                  {{options.food_id}}
+                </td>
+                <td  style="width:10%">
+                  <button type="button" class="btn btn-primary btn-round" data-toggle="modal"
+                  data-target="#UpdateChoices" (click)="setformupdate(options.id,options.name,options.food_id)">{{'Edit' | translate }}</button>
+                </td>
+                <td  style="width:10%">
+                  <button type="button" class="btn btn-danger btn-round" data-toggle="modal"
+                  data-target="#deleteChoices" (click)="saveid(options.id)">{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="AddChoices" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'Addcategories' | translate }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" enctype="multipart/form-data">
+          <div class="row text-right">
+            <div class=" col-md-12">
+              <div class="form-group">
+                <label>{{'Name' | translate }}</label>
+                <input type="text" class="form-control" placeholder="{{'Name' | translate }}"
+                  [formControl]="form.controls['Name']">
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="sel1">{{'productlist' | translate }}</label>
+                  <select class="form-control" id="sel1" (change)="getoptionslistid($event)">
+                    <optgroup label="{{'productlist' | translate }}">
+                      <option value="" selected disabled hidden>{{'productlist' | translate }}</option>
+                      <option *ngFor="let foods of productfoods" id="{{foods.id}}">{{foods.name}}
+                      </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate
+          }}</button>
+        <button type="button" class="btn btn-primary  btn-round" (click)="Addoptionslistform()">{{'Save' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="UpdateChoices" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'Edit' | translate }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formEdit" enctype="multipart/form-data">
+          <div class="row text-right">
+            <div class=" col-md-12">
+              <div class="form-group">
+                <label>{{'Name' | translate }}</label>
+                <input type="text" class="form-control" placeholder="{{'Name' | translate }}"
+                  [formControl]="formEdit.controls['NameformEdit']">
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="sel1">{{'productlist' | translate }}</label>
+                  <select class="form-control" id="productlist" (change)="getoptionslistid($event)" [formControl]="formEdit.controls['productlist']">
+                    <optgroup label="{{'productlist' | translate }}">
+                      <option value="" selected disabled hidden>{{'productlist' | translate }}</option>
+                      <option *ngFor="let foods of productfoods" id="{{foods.id}}">{{foods.name}}
+                      </option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate
+          }}</button>
+        <button type="button" class="btn btn-primary  btn-round" (click)="updateoptionslistform()">{{'Save' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="deleteChoices" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'DeleteCategorie' | translate }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate }}</button>
+        <button type="button" class="btn btn-danger  btn-round" (click)="deleteoptionslistform()">{{'Delete' | translate
+          }}</button>
+      </div>
+    </div>
+  </div>
+</div>

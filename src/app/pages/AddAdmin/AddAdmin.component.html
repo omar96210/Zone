@@ -1,0 +1,48 @@
+<div class="col-12">
+  <div class="card card-user">
+    <div class="card-header">
+      <h5 class="card-title">{{'AddAdmin' | translate }}</h5>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>{{'Name' | translate }}</label>
+              <input type="text" class="form-control" placeholder="{{'Name' | translate }}">
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="form-group">
+              <label>{{'Email' | translate }} </label>
+              <input type="email" class="form-control" placeholder="example@123.com">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label> {{'Phone' | translate }} </label>
+              <input type="number" class="form-control" placeholder="{{'Phone' | translate }}">
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class=" col-md-3 ">
+            <img [src]="url" onerror="this.src = 'assets/img/image-gallery.png';"
+             width="150" height="150" class="img-thumbnail" style=" margin-right: 30%;" >
+             <br />
+            
+            <label class="form-label" for="customFile">{{'profilephoto' | translate }} </label>
+            <input type="file" class="form-control" id="customFile" (change)="onFileSelected($event)" />
+          </div>
+      
+
+        </div>
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round">{{'AddDrivers' | translate }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

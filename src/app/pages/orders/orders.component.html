@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header row">
+        <div class="col-md-6">
+          <h4 class="card-title text-right ">{{'orderTable' | translate }}</h4>
+
+        </div>
+        <!-- <div class="col-md-6" >
+          <button type="button" class="btn btn-primary btn-round  " >{{'AddDrivers' | translate }}</button>
+        </div> -->
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead class=" text-primary">
+              <th style="width: 5%;">
+                #
+              </th>
+              <th>
+                {{'Name' | translate }}
+              </th>
+              <th>
+                {{'ShopName' | translate }}
+              </th>
+              <th>
+                {{'price' | translate }}
+              </th>
+              <th>
+                {{'status' | translate }}
+              </th>
+              <th>
+                market_distance
+              </th>
+              <th>
+                market_lat
+              </th>
+              <th>
+                market_lng
+              </th>
+              <th>
+                user_lat
+              </th>
+              <th>
+                user_lng
+              </th>
+              <th>
+                delivery_id
+              </th>
+              <th>
+                user_id
+              </th>
+              <th>
+                {{'City' | translate }}
+              </th>
+              <th>
+                {{'market_id' | translate }}
+              </th>
+            </thead>
+
+<!-- 
+      
+            market_distance: 100
+            market_lat: 23
+            market_lng: 21
+            user_lat: 32
+            user_lng: 49
+            delivery_id: 1
+            user_id: 1
+ -->
+            <tbody>
+              <tr *ngFor="let orders of orderslist">
+                <td>
+                  {{orders.id}}
+                </td>
+                <td>
+                  {{orders.username}}
+                </td>
+                <td>
+                  {{orders.marketname}}
+                </td>
+                <td>
+                  {{orders.price}}
+                </td>
+                <td>
+                  {{orders.status}}
+                </td>
+                <td>
+                  {{orders.market_distance}}
+                </td>
+                <td>
+                  {{orders.market_lat}}
+                </td>
+                <td>
+                  {{orders.market_lng}}
+                </td>
+                <td>
+                  {{orders.user_lat}}
+                </td>
+                <td>
+                  {{orders.user_lng}}
+                </td>
+                <td>
+                  {{orders.delivery_id}}
+                </td>
+                <td>
+                  {{orders.user_id}}
+                </td>
+                <td>
+                  {{orders.address_id}}
+                </td>
+                <td>
+                  {{orders.market_id}}
+                </td>
+                <!-- <td>
+                  <button type="button" class="btn btn-primary btn-round">{{'details' | translate}}</button>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

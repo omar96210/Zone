@@ -1,0 +1,149 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header row">
+        <div class="col-md-6">
+          <h4 class="card-title text-right ">{{'ShopsListTable' | translate }}</h4>
+
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-round" routerLink="/AddMarket">{{'AddShopsList' | translate
+            }}</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead class=" text-primary">
+              <th>
+                #
+              </th>
+              <th>
+                {{'ShopName' | translate }}
+              </th>
+              <th>
+                {{'OwnerName' | translate }}
+              </th>
+              <th>
+                {{'Phone' | translate }}
+              </th>
+              <th>
+                {{'location' | translate }}
+              </th>
+              <th>
+                {{'earnCount2' | translate }}
+              </th>
+              <th>
+                {{'orders' | translate }}
+              </th>
+              <th>
+                {{'categorie' | translate }}
+              </th>
+              <th>
+                {{'status' | translate }}
+              </th>
+              <th>
+                {{'Rating' | translate }}
+              </th>
+              <th>
+                {{'Image' | translate }}
+              </th>
+              <th>
+                {{'Edit' | translate }}
+              </th>
+              <th>
+                {{'Delete' | translate }}
+              </th>
+            </thead>
+            <!-- address: "dskdsgdfjsfdjhsafjdhasfjdhs"
+            balance: 4000
+            field_id: 1
+            id: 10
+            image: "3.png"
+            mobile: "434863543"
+            order_count: 22
+            phone: "4635423473"
+            picks: 10
+            rate: 5
+            status: "on"
+            summary: "we hope every thing be fin for you please contact us if there any problem"
+            title: "kdsklhfjksjgjdsf"
+            user_id: 1 -->
+            <tbody>
+              <tr *ngFor="let markets of marketslist">
+                <td>
+                  {{markets.id}}
+                </td>
+                <td>
+                  {{markets.title}}
+                </td>
+                <td>
+                  {{'OwnerName' | translate }}
+                </td>
+                <td>
+                  {{markets.mobile}}
+                </td>
+                <td>
+                  {{markets.address}}
+                </td>
+                <td>
+                  {{markets.balance}}
+                </td>
+                <td>
+                  {{markets.order_count}}
+                </td>
+                <td>
+                  {{markets.field_id}}
+                </td>
+                <td>
+                  {{markets.status}}
+                </td>
+                <td>
+                  {{markets.rate}}
+                  <img src="assets/img/star.svg" width="20px" height="20px" style="margin-bottom: 7px;"> 
+                </td>
+                <td>
+                  <img src="{{markets.image}}" onerror="this.src = 'assets/img/image-gallery.png';" width="50"
+                    height="50">
+                </td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-round" (click)="changeParam(markets.id)">{{'Edit' | translate }}</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-round" data-toggle="modal"
+                  data-target="#deletemarkets" (click)="saveid(markets.id)">{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="deletemarkets" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'DeleteCategorie' | translate }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate }}</button>
+        <button type="button" class="btn btn-danger  btn-round" (click)="deletemarketsform()">{{'Delete' | translate
+          }}</button>
+      </div>
+    </div>
+  </div>
+</div>

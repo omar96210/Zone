@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+ ul #nested ul { display: none; }
+
+
+#nested ul li:hover>ul{
+    display: block; 
+}
+#nested{
+    color: rebeccapurple;
+}

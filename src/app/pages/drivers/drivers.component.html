@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header row">
+        <div class="col-md-6">
+          <h4 class="card-title text-right ">{{'DriversTable' | translate }}</h4>
+
+        </div>
+        <!-- <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-round" routerLink="/AddDrivers">{{'AddDrivers' | translate
+            }}</button>
+        </div> -->
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead class=" text-primary">
+              <th>
+                #
+              </th>
+              <th>
+                {{'Name' | translate }}
+              </th>
+              <th>
+                {{'Email' | translate }}
+
+              </th>
+              <th>
+                {{'Phone' | translate }}
+
+              </th>
+              <th>
+                {{'Orders' | translate }}
+
+              </th>
+              <th>
+                {{'Rating' | translate }}
+
+              </th>
+              <th>
+                {{'Procedures' | translate }}
+
+              </th>
+              <!-- <th>
+                {{'Edit' | translate }}
+
+              </th> -->
+            </thead>
+            <tbody >
+              <tr *ngFor="let Driver of Driverlist">
+                <td>
+                 {{Driver.id}}
+                </td>
+                <td>
+                  {{Driver.name}}
+                </td>
+                <td>
+                  {{Driver.email}}
+                </td>
+                <td>
+                  {{Driver.phone}}
+                </td>
+                <td>
+                  {{Driver.order_count}}
+                </td>
+                <td>
+                  {{Driver.rate}}
+                  <img src="assets/img/star.svg" width="20px" height="20px">
+                </td>
+                <td>
+                  {{Driver.status}}
+                </td>
+                <!-- <td>
+                  <button type="button" class="btn btn-primary btn-round">{{'Edit' | translate }}</button>
+                </td> -->
+              </tr>
+             
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

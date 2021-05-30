@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header row">
+        <div class="col-md-6">
+          <h4 class="card-title text-right ">{{'SlideTable' | translate }}</h4>
+
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-round" data-toggle="modal" data-target="#AddSlider">{{'AddSlide'
+            | translate }}</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead class=" text-primary">
+              <th style="width:5%">
+                #
+              </th>
+              <th>
+                {{'image' | translate }}
+              </th>
+  
+              <th style="width:10%"> 
+                {{'Delete' | translate }}
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sliders of sliderslist">
+                <td style="width:5%">
+                 {{sliders.id}}
+                </td>
+                <td>
+                  <img src="{{sliders.image}}" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+         
+                <td style="width:10%">
+                  <button type="button" class="btn btn-danger btn-round"data-toggle="modal"
+                  data-target="#deleteslider" (click)="saveid(sliders.id)">{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="AddSlider" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'AddCity' | translate }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="form" enctype="multipart/form-data">
+          <div class="row">
+              <div class=" col-md-12 text-center">
+                <!-- <img [src]="url" onerror="this.src = 'assets/img/image-gallery.png';"
+                 width="150" height="150" class="img-thumbnail"  >
+                 <br /> -->
+                <label class="form-label" for="customFile">{{'profilephoto' | translate }} </label>
+                <input type="file" class="form-control" id="customFile" (change)="onFileSelected($event)" />
+              </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{'close' | translate }}</button>
+        <button type="button" class="btn btn-primary" (click)="Addupload()">{{'Save' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteslider" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'DeleteCategorie' | translate }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate }}</button>
+        <button type="button" class="btn btn-danger  btn-round" (click)="deletesliderform()">{{'Delete' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header row">
+        <div class="col-md-6">
+          <h4 class="card-title text-right ">{{'productlistTable' | translate }}</h4>
+        </div>
+        <div class="col-md-6">
+          <button type="button" class="btn btn-primary btn-round  " routerLink="/AddProductlist">{{'Addproductlist' | translate }}</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead class=" text-primary">
+              <th style="width: 5%;">
+                #
+              </th>
+              <th>
+                {{'Name' | translate }}
+              </th>
+              <th>
+                {{'details' | translate }}
+              </th>
+              <th>
+                {{'price' | translate }}
+              </th>
+              <th>
+                {{'categorie' | translate }}
+
+              </th>
+              <th>
+                {{'shop' | translate }}
+
+              </th>
+              <th style="width: 10%;">
+                {{'Image' | translate }}
+
+              </th>
+              <th style="width: 10%;">
+                {{'Edit' | translate }}
+              </th>
+              <th style="width: 10%;">
+                {{'Delete' | translate }}
+
+              </th>
+            </thead>
+
+            <!-- category_id: 2
+            desc: "jsdjsfdhjsf"
+            id: 2
+            image: "1.png"
+            market_id: 10
+            name: "jsahdkjsgdjhsf"
+            price: 150 -->
+            <tbody>
+              <tr *ngFor="let product of productfoods">
+                <td style="width: 5%;">
+                  {{product.id}}
+                </td>
+                <td>
+                  {{product.name}}
+                </td>
+                <td>
+                  {{product.desc}}
+                </td>
+                <td>
+                  {{product.price}}
+                </td>
+                <td>
+                  {{product.category_id}}
+                </td>
+                <td>
+                  {{product.market_id}}
+                </td>
+                
+                <td style="width: 10%;">
+                  <img src="{{product.image}}" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+                <td style="width: 10%;">
+                  <button type="button" class="btn btn-primary btn-round" (click)="changeParam(product.id)">{{'Edit' | translate }}</button>
+                </td>
+                <td style="width: 10%;">
+                  <button type="button" class="btn btn-danger btn-round" data-toggle="modal"
+                  data-target="#deleteproductlist" (click)="saveid(product.id)">{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteproductlist" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'Deleteproduct' | translate }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate }}</button>
+        <button type="button" class="btn btn-danger  btn-round" (click)="deleteproductlistform()">{{'Delete' | translate
+          }}</button>
+      </div>
+    </div>
+  </div>
+</div>

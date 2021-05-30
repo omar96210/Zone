@@ -1,0 +1,148 @@
+<div class="sidebar-wrapper ">
+  <div class="logo" (click)="get()" >
+    <a class="simple-text logo-mini">
+      <div class="logo-image-small">
+        <img src="assets/img/logo.svg">
+      </div>
+    </a>
+    <a class="simple-text logo-normal " style="font-weight: bold; font-size: 16px; padding-right: 10px;">
+      {{'ArkanMarket' | translate}}      
+    </a>
+  </div>
+  <ul class="nav" *ngIf="isLoaded">
+    <li routerLinkActive="active">
+      <a routerLink="/dashboard" class=" p-3" (click)="opennestednav('0')">
+        <i class="nc-icon nc-bank"></i>
+        <p style="float: right;  ">{{'dashboard' | translate}}</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/sliders" class=" p-3" (click)="opennestednav('0')">
+        <i class="nc-icon  nc-image"></i>
+        <p style="float: right;  ">{{'sliders' | translate}}</p>
+      </a>
+    </li>
+    <li>
+      <a class=" p-3" (click)="opennestednav('1')" >
+        <i class="nc-icon  nc-circle-10"></i>
+        <p style="float: right;" >{{'Members' | translate}}</p>
+          <i class="fa fa-caret-left" hidden="{{icon1}}" style="padding-right: 4px;"></i> 
+          <i class="fa fa-caret-down" hidden="{{status1}}" style="padding-right: 4px;"></i> 
+      </a>
+      <ul routerLinkActive="active" class="nav" hidden="{{status1}}">
+        <li routerLinkActive="active">
+          <a routerLink="/Admin" class=" p-3">
+            <i class="nc-icon  nc-delivery-fast"></i>
+            <p style="float: right;  ">{{'Managers' | translate}}</p>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/Users" class=" p-3">
+            <i class="nc-icon  nc-bank"></i>
+            <p style="float: right;  ">{{'Customer' | translate}}</p>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/drivers" class=" p-3">
+            <i class="nc-icon  nc-delivery-fast"></i>
+            <p style="float: right;  ">{{'Drivers' | translate}}</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a class=" p-3" (click)="opennestednav('2')">
+        <i class="nc-icon  nc-shop"></i>
+        <p style="float: right;  ">{{'Shops' | translate}}</p>
+        <i class="fa fa-caret-left" hidden="{{icon2}}" style="padding-right: 4px;"></i> 
+        <i class="fa fa-caret-down" hidden="{{status2}}" style="padding-right: 4px;"></i> 
+      </a>
+      <ul routerLinkActive="active" class="nav"  hidden="{{status2}}">
+        <li routerLinkActive="active">
+          <a routerLink="/Shopscategorie" class=" p-3">
+            <i class="nc-icon  nc-layout-11"></i>
+            <p style="float: right;  ">{{'Shopscategorie' | translate}}</p>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/ShopsList" class=" p-3">
+            <i class="nc-icon  nc-bullet-list-67"></i>
+            <p style="float: right;  ">{{'ShopsList' | translate}}</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li >
+      <a class=" p-3" (click)="opennestednav('3')">
+          <i class="nc-icon  nc-box-2"></i>
+          <p style="float: right;  ">{{'product' | translate}}</p>
+          <i class="fa fa-caret-left" hidden="{{icon3}}" style="padding-right: 4px;"></i> 
+          <i class="fa fa-caret-down" hidden="{{status3}}" style="padding-right: 4px;"></i> 
+      </a>
+      <ul class="nav" routerLinkActive="active" hidden="{{status3}}" >
+        <li routerLinkActive="active">
+          <a routerLink="/Categories" class=" p-3">
+            <i class="nc-icon  nc-layout-11"></i>
+            <p style="float: right;  ">{{'categories' | translate}}</p>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/productlist" class=" p-3">
+            <i class="nc-icon  nc-bullet-list-67"></i>
+            <p style="float: right;  ">{{'productlist' | translate}}</p>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/Choices" class=" p-3">
+            <i class="nc-icon  nc-tile-56"></i>
+            <p style="float: right;  ">{{'Choices' | translate}}</p>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/Choiceslist" class=" p-3">
+            <i class="nc-icon  nc-bullet-list-67"></i>
+            <p style="float: right;  ">{{'Choiceslist' | translate}}</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li routerLinkActive="active">
+      <a  routerLink="/orders" class=" p-3" (click)="opennestednav('0')">
+        <i class="nc-icon  nc-bag-16"></i>
+        <p style="float: right;  ">{{'orders' | translate}}</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/Coupons" class=" p-3" (click)="opennestednav('0')"> 
+        <i class="nc-icon  nc-tag-content"></i>
+        <p style="float: right;  ">{{'Coupons' | translate}}</p>
+      </a>
+    </li>
+    <!-- <li routerLinkActive="active">
+      <a routerLink="/City" class=" p-3" (click)="opennestednav('0')">
+        <i class="nc-icon nc-world-2"></i>
+        <p style="float: right;  ">{{'City' | translate}}</p>
+      </a>
+    </li> -->
+    <li routerLinkActive="active">
+      <a routerLink="/Settings" class="p-3" (click)="opennestednav('0')">
+        <i class="nc-icon  nc-settings-gear-65"></i>
+        <p style="float: right;  ">{{'Settings' | translate}}</p>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard" class=" p-3" style="color: red; font-weight: bold;">
+        <i class="nc-icon  nc-button-power" style="color: red;"></i>
+        <p style="float: right;  ">{{'SignOut' | translate}}</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="/icons" class=" p-3">
+        <i class="nc-icon  nc-diamond"></i>
+        <p style="float: right;  ">icon</p>
+      </a>
+    </li>
+  </ul>
+</div>
+

@@ -1,0 +1,73 @@
+<div class="col-12">
+  <div class="card card-user">
+    <div class="card-header">
+      <h5 class="card-title">{{'AddUsers' | translate}}</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>{{'Name' | translate }}</label>
+              <input type="text" class="form-control" placeholder="{{'Name' | translate }}"
+                [formControl]="form.controls['Name']">
+            </div>
+          </div>
+          <div class="col-md-6 ">
+            <div class="form-group">
+              <label>{{'Email' | translate }} </label>
+              <input type="email" class="form-control" placeholder="example@123.com"
+                [formControl]="form.controls['Email']">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label> {{'Phone' | translate }} </label>
+              <input type="tel" class="form-control"  placeholder="{{'Phone' | translate }}"
+                [formControl]="form.controls['Phone']">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="sel1">{{'sectionlist' | translate }}</label>
+              <select class="form-control" id="sel1" (change)="GetUserRole($event)">
+                <optgroup label="{{'sectionlist' | translate }}">
+                  <option value="" selected disabled hidden>{{'sectionlist' | translate }}</option>
+                  <option value="admin">{{'Admin' | translate }}</option>
+                  <option value="manager">{{'Market' | translate }}</option>
+                  <option value="driver">{{'Driver' | translate }}</option>
+                  <option value="user">{{'User' | translate }}</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>{{'Pass' | translate }}</label>
+              <input type="password" class="form-control" placeholder="{{'Pass' | translate }}"
+                [formControl]="form.controls['Pass']">
+            </div>
+          </div>
+          <div class=" col-md-6 ">
+            <!-- <img [src]="url" onerror="this.src = 'assets/img/image-gallery.png';"
+             width="150" height="150" class="img-thumbnail" style=" margin-right: 30%;" >
+             <br /> -->
+            <label class="form-label" for="customFile">{{'profilephoto' | translate }} </label>
+            <input type="file" class="form-control" id="customFile" (change)="onFileSelected($event)" />
+          </div>
+        </div>
+   
+        <div class="row text-center p-4">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round" (click)="AddUserform()">{{'AddDrivers' | translate
+              }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
