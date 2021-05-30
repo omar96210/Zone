@@ -464,6 +464,7 @@
         position: relative;
         padding: 7px $padding-base-horizontal;
         z-index: 4;
+        padding-bottom: 45px !important;
 
         a.logo-mini,
         a.logo-normal{
@@ -473,7 +474,7 @@
         a.logo-mini{
             opacity: 1;
             float: left;
-            width: 34px;
+            width: 75px;
             text-align: center;
             margin-left: 10px;
             margin-right: 12px;
@@ -484,6 +485,7 @@
             display: block;
             opacity: 1;
             padding: 11px 0 8px;
+
             @include transform-translate-x(0px);
         }
 
@@ -697,3 +699,7 @@
   ;
 }
 
+.modal-header .close {
+     padding: 0!important; 
+     margin: 0 !important; 
+}

@@ -48,11 +48,10 @@
   </div>
 </div>
 
-
 <!-- Modal -->
 <div class="modal fade" id="AddSlider" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog " role="document">
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">{{'AddCity' | translate }}</h5>
@@ -61,7 +60,6 @@
         </button>
       </div>
       <div class="modal-body">
-
         <form [formGroup]="form" enctype="multipart/form-data">
           <div class="row">
               <div class=" col-md-12 text-center">
@@ -84,7 +82,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="deleteslider" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
+  aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
