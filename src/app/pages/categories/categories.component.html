@@ -6,7 +6,7 @@
           <h4 class="card-title text-right ">{{'categoriesTable' | translate }}</h4>
 
         </div>
-        <div class="col-md-6">
+        <div class="card-btn col-md-6">
           <button type="button" class="btn btn-primary btn-round" data-toggle="modal"
             data-target="#Addcategories">{{'Addcategories' | translate }}</button>
         </div>
@@ -96,21 +96,26 @@
                   [formControl]="form.controls['Name1']">
               </div>
             </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="sel1">{{'status' | translate }}</label>
+                <select class="form-control" id="sel1" (change)="GetStatus($event)">
+                  <optgroup label="{{'status' | translate }}">
+                    <option value="" selected disabled hidden>{{'status' | translate }}</option>
+                    <option value="1">{{'on' | translate }}</option>
+                    <option value="0">{{'off' | translate }}</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
             <div class=" col-md-12 ">
-              <!-- <img [src]="url" onerror="this.src = 'assets/img/image-gallery.png';"
+              <img [src]="url" onerror="this.src = 'assets/img/image-gallery.png';"
                  width="150" height="150" class="img-thumbnail"  >
-                 <br /> -->
+                 <br />
               <label class="form-label" for="customFile">{{'profilephoto' | translate }} </label>
               <input type="file" class="form-control" id="customFile" (change)="onFileSelected($event)" />
             </div>
-            <div class=" col-md-12 p-3 ">
-              <div class="form-group">
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="status" (change)="statuschange()">
-                  <label class="custom-control-label" for="status">{{'status' | translate }}</label>
-                </div>
-              </div>
-            </div>
+ 
           </div>
         </form>
       </div>
@@ -144,21 +149,26 @@
                   [formControl]="formupdate.controls['Nameupdate']">
               </div>
             </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="sel1">{{'status' | translate }}</label>
+                <select class="form-control" id="sel1" (change)="GetStatusedit($event)">
+                  <optgroup label="{{'status' | translate }}">
+                    <option value="" selected disabled hidden>{{'status' | translate }}</option>
+                    <option value="1">{{'on' | translate }}</option>
+                    <option value="0">{{'off' | translate }}</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
             <div class=" col-md-12 ">
-              <!-- <img [src]="url" onerror="this.src = 'assets/img/image-gallery.png';"
+              <img [src]="url" onerror="this.src = 'assets/img/image-gallery.png';"
                width="150" height="150" class="img-thumbnail"  >
-               <br /> -->
+               <br />
               <label class="form-label" for="customFile">{{'profilephoto' | translate }} </label>
               <input required type="file" class="form-control" id="customFile" (change)="onFileSelected($event)" />
             </div>
-            <div class=" col-md-12 p-3 ">
-              <div class="form-group">
-                <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input" id="statusupdate" (change)="statuschangeupdate()">
-                  <label class="custom-control-label" for="statusupdate">{{'status' | translate }}</label>
-                </div>
-              </div>
-            </div>
+     
           </div>
         </form>
       </div>
@@ -179,7 +189,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">{{'DeleteCategorie' | translate }}</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'Delete' | translate }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

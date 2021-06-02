@@ -21,6 +21,8 @@ export class productlistComponent implements OnInit {
 
 
     productfoodslength: any;
+    productmarkets: any;
+    productcategories: any;
 
     constructor(
         public translate: TranslateService,
@@ -49,9 +51,14 @@ export class productlistComponent implements OnInit {
             .then(data => {
                 this.productlist = data;
                 this.productfoods = this.productlist.foods;
-                this.productfoodslength=this.productfoods.length;
-                parseInt(this.productfoodslength)
-                console.log("Result of productlist List", this.productlist);
+                this.productcategories = this.productlist.categories;
+                this.productmarkets = this.productlist.markets;
+
+                // this.productfoodslength=this.productfoods.length;
+                // parseInt(this.productfoodslength)
+                console.log("Result of productfoods List", this.productlist);
+                console.log("Result of productcategories List", this.productcategories[0].name);
+                console.log("Result of productmarkets List", this.productmarkets);
 
             })
             .catch(error => {

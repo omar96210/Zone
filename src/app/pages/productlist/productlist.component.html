@@ -5,8 +5,9 @@
         <div class="col-md-6">
           <h4 class="card-title text-right ">{{'productlistTable' | translate }}</h4>
         </div>
-        <div class="col-md-6">
-          <button type="button" class="btn btn-primary btn-round  " routerLink="/AddProductlist">{{'Addproductlist' | translate }}</button>
+        <div class="card-btn col-md-6">
+          <button type="button" class="btn btn-primary btn-round  " routerLink="/AddProductlist">{{'Addproductlist' |
+            translate }}</button>
         </div>
       </div>
       <div class="card-body">
@@ -54,7 +55,7 @@
             name: "jsahdkjsgdjhsf"
             price: 150 -->
             <tbody>
-              <tr *ngFor="let product of productfoods">
+              <tr *ngFor="let product of productfoods; let i=index">
                 <td style="width: 5%;">
                   {{product.id}}
                 </td>
@@ -67,24 +68,37 @@
                 <td>
                   {{product.price}}
                 </td>
+
                 <td>
-                  {{product.category_id}}
+                  <span *ngFor="let categories of productcategories; let i1=index">
+                <td *ngIf="product.category_id===productcategories[i1].id">
+                  {{productcategories[i1].name}}
                 </td>
+                </span>
+                </td>
+
                 <td>
-                  {{product.market_id}}
+                  <span *ngFor="let markets of productmarkets; let mar=index">
+                <td *ngIf="product.market_id===productmarkets[mar].id">
+                  {{productmarkets[mar].title}}
                 </td>
-                
+                </span>
+                </td>
+
                 <td style="width: 10%;">
-                  <img src="{{product.image}}" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                  <img src="{{product.image}}" onerror="this.src = 'assets/img/image-gallery.png';" width="50"
+                    height="50">
                 </td>
                 <td style="width: 10%;">
-                  <button type="button" class="btn btn-primary btn-round" (click)="changeParam(product.id)">{{'Edit' | translate }}</button>
+                  <button type="button" class="btn btn-primary btn-round" (click)="changeParam(product.id)">{{'Edit' |
+                    translate }}</button>
                 </td>
                 <td style="width: 10%;">
                   <button type="button" class="btn btn-danger btn-round" data-toggle="modal"
-                  data-target="#deleteproductlist" (click)="saveid(product.id)">{{'Delete' | translate}}</button>
+                    data-target="#deleteproductlist" (click)="saveid(product.id)">{{'Delete' | translate}}</button>
                 </td>
               </tr>
+
             </tbody>
           </table>
         </div>
@@ -108,7 +122,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate }}</button>
+        <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate
+          }}</button>
         <button type="button" class="btn btn-danger  btn-round" (click)="deleteproductlistform()">{{'Delete' | translate
           }}</button>
       </div>

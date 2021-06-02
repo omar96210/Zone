@@ -6,7 +6,7 @@
           <h4 class="card-title text-right ">{{'ChoicesTablehead' | translate }}</h4>
 
         </div>
-        <div class="col-md-6">
+        <div class="card-btn col-md-6">
           <button type="button" class="btn btn-primary btn-round"  data-toggle="modal"
           data-target="#AddChoices">{{'AddChoiceshead' | translate }}</button>
         </div>
@@ -40,8 +40,14 @@
                   {{options.name}}
                 </td>
                 <td>
-                  {{options.food_id}}
+                  <span *ngFor="let foods of productfoods; let mar=index">
+                <td *ngIf="options.food_id===productfoods[mar].id">
+                  {{productfoods[mar].name}}
                 </td>
+                </span>
+                </td>
+
+          
                 <td  style="width:10%">
                   <button type="button" class="btn btn-primary btn-round" data-toggle="modal"
                   data-target="#UpdateChoices" (click)="setformupdate(options.id,options.name,options.food_id)">{{'Edit' | translate }}</button>
@@ -66,7 +72,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">{{'Addcategories' | translate }}</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'AddChoiceshead' | translate }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -144,7 +150,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary  btn-round" data-dismiss="modal">{{'close' | translate
           }}</button>
-        <button type="button" class="btn btn-primary  btn-round" (click)="updateoptionslistform()">{{'Save' | translate }}</button>
+        <button type="button" class="btn btn-primary  btn-round" (click)="updateoptionslistform()">{{'Edit' | translate }}</button>
       </div>
     </div>
   </div>
@@ -155,7 +161,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">{{'DeleteCategorie' | translate }}</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">{{'Delete' | translate }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

@@ -1,7 +1,7 @@
 <div class="col-12">
   <div class="card card-user">
     <div class="card-header">
-      <h5 class="card-title">{{'Addproductlist' | translate }}</h5>
+      <h5 class="card-title">{{'AddShopsList' | translate }}</h5>
     </div>
     <div class="card-body">
       <form [formGroup]="form" enctype="multipart/form-data">
@@ -56,20 +56,19 @@
               <select class="form-control" id="sel1" (change)="GetStatus($event)">
                 <optgroup label="{{'status' | translate }}">
                   <option value="" selected disabled hidden>{{'status' | translate }}</option>
-                  <option value="on">On</option>
-                  <option value="off">Off</option>
+                  <option value="on">{{'on' | translate }}</option>
+                  <option value="off">{{'off' | translate }}</option>
                 </optgroup>
               </select>
             </div>
           </div>
         </div>
- 
+
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
               <label>{{'details' | translate }}</label>
-              <textarea
-                class="form-control textarea" [formControl]="form.controls['details']"></textarea>
+              <textarea class="form-control textarea" [formControl]="form.controls['details']"></textarea>
             </div>
           </div>
         </div>
@@ -84,8 +83,8 @@
         </div>
         <div class="row text-center">
           <div class="update ml-auto mr-auto">
-            <button type="button" class="btn btn-primary btn-round" (click)="Addmarketform()">{{'Addproductlist' |
-              translate }}</button>
+            <button type="button" class="btn btn-primary btn-round" (click)="Addmarketform()">{{'Save' |translate
+              }}</button>
           </div>
         </div>
       </form>

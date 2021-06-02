@@ -75,6 +75,7 @@
             }
         }
    }
+
    > thead > tr > th,
    > tbody > tr > th,
    > tfoot > tr > th,
@@ -97,6 +98,7 @@
        text-align: right;
    }
    .td-total{
+
         font-weight: $font-weight-bold;
         font-size: $font-size-h5;
         padding-top: 20px;
@@ -104,20 +106,27 @@
     }
 
    .td-actions .btn{
+
     margin: 0px;
+
     }
 
     > tbody > tr{
+
         position: relative;
+
     }
 }
 
 .table-shopping{
     > thead > tr > th{
+
         font-size: $font-size-h6;
         text-transform: uppercase;
+
     }
     > tbody > tr > td{
+
         font-size: $font-paragraph;
 
         b{
@@ -126,6 +135,7 @@
         }
     }
     .td-name{
+        
         font-weight: $font-weight-normal;
         font-size: 1.5em;
         small{
@@ -173,4 +183,14 @@
 
 .table-hover>tbody>tr:hover{
   background-color: #f5f5f5;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0 !important; 
+
+}
+
+.table th, .table td {
+    
+    border-top:transparent !important;
 }

@@ -4,6 +4,7 @@ import { Service } from '../services/service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastrService } from "ngx-toastr";
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch'
@@ -27,6 +28,8 @@ export class ShopscategorieComponent implements OnInit{
     errorMessage: any;
     NameForm: any;
     NameFormupdate: any;
+    Status: any;
+    Statusedit: any;
 
 
     constructor(
@@ -34,7 +37,9 @@ export class ShopscategorieComponent implements OnInit{
         private fb: FormBuilder,
         public Service: Service,
         private http: HttpClient,
-        private router: Router
+        private router: Router,
+        private toastr: ToastrService
+
     ) {
         this.http = http;
         this.apiUrl = 'http://tall3ah.site/image/upload';
@@ -69,25 +74,15 @@ export class ShopscategorieComponent implements OnInit{
 
 
 // ##### Toggle btn status #####
-statuschangeBtn: any = 0;
-statuschange() {
-    this.statuschangeBtn = !this.statuschangeBtn
-    if (this.statuschangeBtn === true) {
-        this.statuschangeBtn = 1
-    } else if (this.statuschangeBtn === false) {
-        this.statuschangeBtn = 0
-    }
-    console.log(this.statuschangeBtn)
+GetStatus(event: any) {
+    this.Status = event.target.value
+    console.log(this.Status)
 }
-statuschangeupdateBtn: any = 0;
-statuschangeupdate() {
-    this.statuschangeupdateBtn = !this.statuschangeupdateBtn
-    if (this.statuschangeupdateBtn === true) {
-        this.statuschangeupdateBtn = 1
-    } else if (this.statuschangeupdateBtn === false) {
-        this.statuschangeupdateBtn = 0
-    }
-    console.log(this.statuschangeupdateBtn)
+
+
+GetStatusedit(event: any) {
+    this.Statusedit = event.target.value
+    console.log(this.Statusedit)
 }
 // ##### End Toggle btn status #####
 
@@ -156,7 +151,7 @@ saveid(id: any) {
 
 Addshopcategoryform() {
     this.NameForm = this.form.value.Name1;
-    this.Service.Addshopcategory(this.image, this.NameForm, this.statuschangeBtn).subscribe(
+    this.Service.Addshopcategory(this.image, this.NameForm, this.Status).subscribe(
         data => {
             console.log(data)
             this.Allfields()
@@ -166,6 +161,17 @@ Addshopcategoryform() {
                 Name1: [null, null],
             });
             this.url=null
+            this.toastr.success(
+                '<span data-notify="icon" class="nc-icon nc-check-2"></span><span data-notify="message">Your Data is saved success</span>',
+                "",
+                {
+                  timeOut: 4000,
+                  closeButton: true,
+                  enableHtml: true,
+                  toastClass: "alert alert-success alert-with-icon",
+                  positionClass: "toast-top-center" 
+                }
+              );
         },
         err => {
             console.log(err)
@@ -173,12 +179,22 @@ Addshopcategoryform() {
             $("#Addshopcategories").modal("hide")
             this.image=null;
             this.url=null
-
+            this.toastr.error(
+                '<span data-notify="icon" class="nc-icon nc-simple-remove"></span><span data-notify="message">Your Data is not saved correctle</span>',
+                  "",
+                  {
+                    timeOut: 4000,
+                    enableHtml: true,
+                    closeButton: true,
+                    toastClass: "alert alert-danger alert-with-icon",
+                    positionClass: "toast-top-center" 
+                  }
+                );
         });
 }
 updateshopcategoryform() {
     this.NameFormupdate = this.formupdate.value.Nameupdate;
-    this.Service.updateshopcategory(this.selectedid,this.image, this.NameFormupdate,this.statuschangeupdateBtn).subscribe(
+    this.Service.updateshopcategory(this.selectedid,this.image, this.NameFormupdate,this.Statusedit).subscribe(
         data => {
             console.log(data)
             this.Allfields()
@@ -197,7 +213,17 @@ deleteshopcategoryform() {
             console.log(data)
             this.Allfields()
             $("#deleteshopcategories").modal("hide")
-
+            this.toastr.success(
+                '<span data-notify="icon" class="nc-icon nc-check-2"></span><span data-notify="message">Your Data is deleted</span>',
+                "",
+                {
+                  timeOut: 4000,
+                  closeButton: true,
+                  enableHtml: true,
+                  toastClass: "alert alert-success alert-with-icon",
+                  positionClass: "toast-top-center" 
+                }
+              );
         },
         err => {
             console.log(err)
@@ -205,6 +231,17 @@ deleteshopcategoryform() {
             $("#deleteshopcategories").modal("hide")
 
 
+            this.toastr.error(
+                '<span data-notify="icon" class="nc-icon nc-simple-remove"></span><span data-notify="message">Your Data is not deleted correctle</span>',
+                  "",
+                  {
+                    timeOut: 4000,
+                    enableHtml: true,
+                    closeButton: true,
+                    toastClass: "alert alert-danger alert-with-icon",
+                    positionClass: "toast-top-center" 
+                  }
+                );
         });
 }
     

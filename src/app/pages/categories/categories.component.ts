@@ -28,6 +28,8 @@ export class categoriesComponent implements OnInit {
     errorMessage: any;
     NameForm: any;
     NameFormupdate: any;
+    Status: any;
+    Statusedit: any;
 
 
 
@@ -73,26 +75,14 @@ export class categoriesComponent implements OnInit {
 
 
 // ##### Toggle btn status #####
-    statuschangeBtn: any = 0;
-    statuschange() {
-        this.statuschangeBtn = !this.statuschangeBtn
-        if (this.statuschangeBtn === true) {
-            this.statuschangeBtn = 1
-        } else if (this.statuschangeBtn === false) {
-            this.statuschangeBtn = 0
-        }
-        console.log(this.statuschangeBtn)
-    }
-    statuschangeupdateBtn: any = 0;
-    statuschangeupdate() {
-        this.statuschangeupdateBtn = !this.statuschangeupdateBtn
-        if (this.statuschangeupdateBtn === true) {
-            this.statuschangeupdateBtn = 1
-        } else if (this.statuschangeupdateBtn === false) {
-            this.statuschangeupdateBtn = 0
-        }
-        console.log(this.statuschangeupdateBtn)
-    }
+GetStatus(event: any) {
+    this.Status = event.target.value
+    console.log(this.Status)
+}
+GetStatusedit(event: any) {
+    this.Statusedit = event.target.value
+    console.log(this.Statusedit)
+}
 // ##### End Toggle btn status #####
 
 
@@ -103,7 +93,15 @@ export class categoriesComponent implements OnInit {
 // ##### upload Image #####
 onFileSelected(event: any) {
     this.selectedFile = <File>event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
 
+        reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+        reader.onload = (event) => { // called once readAsDataURL is completed
+            this.url = event.target.result;
+        }
+    }
 
 }
     Addupload() {
@@ -151,7 +149,7 @@ onFileSelected(event: any) {
     Addcategoryform() {
         this.NameForm = this.form.value.Name1;
         this.image="1.png"
-        this.Service.Addcategory(this.image, this.NameForm, this.statuschangeBtn).subscribe(
+        this.Service.Addcategory(this.image, this.NameForm, this.Status).subscribe(
             data => {
                 console.log(data)
                 this.Allcategories()
@@ -192,7 +190,7 @@ onFileSelected(event: any) {
     }
     updatecategoryform() {
         this.NameFormupdate = this.formupdate.value.Nameupdate;
-        this.Service.updatecategory(this.selectedid,this.image, this.NameFormupdate,this.statuschangeupdateBtn).subscribe(
+        this.Service.updatecategory(this.selectedid,this.image, this.NameFormupdate,this.Statusedit).subscribe(
             data => {
                 console.log(data)
                 this.Allcategories()
