@@ -58,6 +58,18 @@ export class slidersComponent implements OnInit {
                 console.log("Result of sliderslist List", this.sliderslist);
             })
             .catch(error => {
+                this.toastr.error(
+                    '<span data-notify="icon" class="nc-icon nc-simple-remove"></span><span data-notify="message">Your Data is not loadit ( Fake Data Only )</span>',
+                      "",
+                      {
+                        timeOut: 4000,
+                        enableHtml: true,
+                        closeButton: true,
+                        toastClass: "alert alert-danger alert-with-icon",
+                        positionClass: "toast-top-center" 
+                      }
+                    );
+        
 
             }
             );

@@ -49,7 +49,89 @@
             </thead>
          
             <tbody>
-              <tr *ngFor="let Users of Userslist">
+
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  أحمد سمير
+                </td>
+                <td>
+                  Ahmed@gmail.com
+                </td>
+                <td>
+                  0121223412
+                </td>
+                <td>
+                  Gold
+                </td>
+                <td>
+                  <img src="sad" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-round" (click)="notDone()" >{{'Edit' | translate}}</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-round" (click)="notDone()" >{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  2
+                </td>
+                <td>
+                   مصطفي زيدان
+                </td>
+                <td>
+                  MZ@gmail.com
+                </td>
+                <td>
+                  01232122341
+                </td>
+                <td>
+                  Silver
+                </td>
+                <td>
+                  <img src="sad" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-round" (click)="notDone()" >{{'Edit' | translate}}</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-round" (click)="notDone()" >{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  3
+                </td>
+                <td>
+                   حسن مدحت
+                </td>
+                <td>
+                  HM@gmail.com
+                </td>
+                <td>
+                  0102312341
+                </td>
+                <td>
+                  Bronz
+                </td>
+                <td>
+                  <img src="sad" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+                <td>
+                  <button type="button" class="btn btn-primary btn-round" (click)="notDone()" >{{'Edit' | translate}}</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-danger btn-round" (click)="notDone()" >{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+
+              <!-- <tr *ngFor="let Users of Userslist">
                 <td>
                   {{Users.id}}
                 </td>
@@ -74,7 +156,9 @@
                 <td>
                   <button type="button" class="btn btn-danger btn-round" >{{'Delete' | translate}}</button>
                 </td>
-              </tr>
+              </tr> -->
+
+
             </tbody>
           </table>
         </div>

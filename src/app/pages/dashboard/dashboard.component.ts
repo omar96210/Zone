@@ -245,7 +245,7 @@ export class DashboardComponent implements OnInit{
           })
           .catch(error => {
             this.toastr.error(
-              '<span data-notify="icon" class="nc-icon nc-simple-remove"></span><span data-notify="message">Your Data is not loadit</span>',
+              '<span data-notify="icon" class="nc-icon nc-simple-remove"></span><span data-notify="message">Your Data is not loadit ( Fake Data Only )</span>',
                 "",
                 {
                   timeOut: 4000,

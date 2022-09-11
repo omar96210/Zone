@@ -26,7 +26,60 @@
               </th>
             </thead>
             <tbody>
-              <tr *ngFor="let sliders of sliderslist">
+              <tr >
+                <td style="width:5%">
+                 1
+                </td>
+                <td>
+                  <img src="qweqe" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+         
+                <td style="width:10%">
+                  <button type="button" class="btn btn-danger btn-round"data-toggle="modal"
+                  data-target="#deleteslider" (click)="saveid(sliders.id)">{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+              <tr >
+                <td style="width:5%">
+                2
+                </td>
+                <td>
+                  <img src="qweqe" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+         
+                <td style="width:10%">
+                  <button type="button" class="btn btn-danger btn-round"data-toggle="modal"
+                  data-target="#deleteslider" (click)="saveid(sliders.id)">{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+              <tr >
+                <td style="width:5%">
+                 3
+                </td>
+                <td>
+                  <img src="qweqe" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+         
+                <td style="width:10%">
+                  <button type="button" class="btn btn-danger btn-round"data-toggle="modal"
+                  data-target="#deleteslider" (click)="saveid(sliders.id)">{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+              <tr >
+                <td style="width:5%">
+                 4
+                </td>
+                <td>
+                  <img src="qweqe" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+         
+                <td style="width:10%">
+                  <button type="button" class="btn btn-danger btn-round"data-toggle="modal"
+                  data-target="#deleteslider" (click)="saveid(sliders.id)">{{'Delete' | translate}}</button>
+                </td>
+              </tr>
+
+<!--               <tr *ngFor="let sliders of sliderslist">
                 <td style="width:5%">
                  {{sliders.id}}
                 </td>
@@ -39,6 +92,8 @@
                   data-target="#deleteslider" (click)="saveid(sliders.id)">{{'Delete' | translate}}</button>
                 </td>
               </tr>
+ -->
+
             </tbody>
           </table>
         </div>
@@ -90,7 +145,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
+        <img src="" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
 
       </div>
       <div class="modal-footer">

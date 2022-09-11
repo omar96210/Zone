@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Service } from '../services/service';
+import { ToastrService } from "ngx-toastr";
 
 
 @Component({
@@ -14,7 +15,8 @@ export class UsersComponent implements OnInit{
 
     constructor(
         public translate: TranslateService,
-        public Service: Service) {
+        public Service: Service,
+        private toastr: ToastrService) {
 
     }
 
@@ -36,8 +38,33 @@ export class UsersComponent implements OnInit{
 
             })
             .catch(error => {
-
+                this.toastr.error(
+                    '<span data-notify="icon" class="nc-icon nc-simple-remove"></span><span data-notify="message">Your Data is not loadit ( Fake Data Only )</span>',
+                      "",
+                      {
+                        timeOut: 4000,
+                        enableHtml: true,
+                        closeButton: true,
+                        toastClass: "alert alert-danger alert-with-icon",
+                        positionClass: "toast-top-center" 
+                      }
+                    );
             }
+            );
+    }
+
+
+    notDone(){
+        this.toastr.error(
+            '<span data-notify="icon" class="nc-icon nc-simple-remove"></span><span data-notify="message">Not Done Yet</span>',
+              "",
+              {
+                timeOut: 4000,
+                enableHtml: true,
+                closeButton: true,
+                toastClass: "alert alert-danger alert-with-icon",
+                positionClass: "toast-top-center" 
+              }
             );
     }
 }

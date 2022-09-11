@@ -8,8 +8,8 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="table-responsive">
-          <table class="table text-center">
+        <div class="table-responsive" style="overflow: scroll;">
+          <table class="table text-center over" > 
             <thead class=" text-primary">
               <th>
                 #
@@ -31,7 +31,62 @@
               </th>
             </thead>
             <tbody>
-              <tr *ngFor="let Admin of Adminlist">
+
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  عمر المنشاوي
+                </td>
+                <td>
+                  omar1996210@gmail.com
+                </td>
+                <td>
+                  0103003290
+                </td>
+                <td>
+                  <img src="gfdg" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  2
+                </td>
+                <td>
+                    علاء عبدالحفيظ
+                </td>
+                <td>
+                  Alaa@gmail.com
+                </td>
+                <td>
+                  0103213103
+                </td>
+                <td>
+                  <img src="gfdg" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+              </tr>
+              
+              <tr>
+                <td>
+                  3
+                </td>
+                <td>
+                  محمود حامد
+                </td>
+                <td>
+                  MH@gmail.com
+                </td>
+                <td>
+                  010321321312
+                </td>
+                <td>
+                  <img src="gfdg" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
+                </td>
+              </tr>
+
+  <!--             <tr *ngFor="let Admin of Adminlist">
                 <td>
                   {{Admin.id}}
                 </td>
@@ -48,6 +103,9 @@
                   <img src="{{Admin.image}}" onerror="this.src = 'assets/img/image-gallery.png';" width="50" height="50">
                 </td>
               </tr>
+ -->
+
+
             </tbody>
           </table>
         </div>
